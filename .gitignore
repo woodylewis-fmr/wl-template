@@ -1,0 +1,13 @@
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+dist/
+tmp
+.DS_Store
+.idea
+*.sublime-project
+*.sublime-workspace
+src/css/*v*.css
+src/js/*v*.js
+src/*.json
