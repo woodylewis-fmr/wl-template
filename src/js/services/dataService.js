@@ -17,7 +17,18 @@
 		return service;
 
 		function initialize() {
-			console.log('DATASERVICE INIT');
+			return $http.get('data.json')
+    		.then(getDataComplete)
+    		.catch(getDataFailed);
+
+		    function getDataComplete(response) {
+		      theData = response.data;
+		      console.log('VALID RESPONSE ', theData);
+		    }
+
+		    function getDataFailed(error) {
+		      console.log('Error - ' + error.data);
+		    }  
 		}
 	}
 })();
