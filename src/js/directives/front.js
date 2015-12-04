@@ -10,7 +10,7 @@
 			restrict: 'AE',
 			scope: {},
 			templateUrl: 'templates/front-tpl.html',
-			controllerAs: "vm",
+			controllerAs: "us",
 			bindToController: true,
 			link: linkFunc,
 			controller: AppController
@@ -19,12 +19,15 @@
 		return directive;
 
 		function linkFunc(scope, element, attr, ctl) {
-			console.log('LINK FUNC');
+			console.log('LINK FUNC ', ctl.alpha);
 		}
 
+		AppController.$inject = ['dataservice'];
 
-		function AppController() {
-			console.log('APP CONTROLLER');
+		function AppController(dataservice) {
+			var vm = this;
+			vm.alpha = dataservice.getAlpha();
+			console.log('APP CONTROLLER ', vm.alpha);
 		}
 	}
 })();

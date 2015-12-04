@@ -12,7 +12,8 @@
 		
 		var service =  {
 			theData: theData,
-			initialize: initialize
+			initialize: initialize,
+			getAlpha: getAlpha
 		};
 		return service;
 
@@ -29,6 +30,10 @@
 		    function getDataFailed(error) {
 		      console.log('Error - ' + error.data);
 		    }  
+		}
+
+		function getAlpha() {
+			return theData.alpha;
 		}
 	}
 })();
