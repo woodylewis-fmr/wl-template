@@ -8,6 +8,3 @@ tmp
 .idea
 *.sublime-project
 *.sublime-workspace
-src/css/*v*.css
-src/js/*v*.js
-src/*.json
