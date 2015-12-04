@@ -8,7 +8,7 @@ function wlTemplate() {
 	var directive = {
 		restrict: 'AE',
 		scope: {},
-		template: '<bold>HERE</bold>',
+		templateUrl: 'templates/front-tpl.html',
 		controllerAs: "vm",
 		bindToController: true,
 		link: linkFunc,
