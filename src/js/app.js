@@ -1,22 +1,27 @@
-'use strict';
+(function() {
+    'use strict';
 
-angular.module('wl-template', [
-	'ui.router',
-	'wl-template.front'
-])
-.config(['$stateProvider', function($stateProvider) {
-  $stateProvider
-    .state('main', {
-      url: "/",
-      views: {
-        'state' : { template: '<wl-template></wl-template>' }
-      }
-    });
-}])
-.run(runBlock);
+    angular
+    .module('wl-template', [
+    	'ui.router',
+    	'wl-template.front',
+      'wl-template.dataservice'
+    ])
+    .config(['$stateProvider', function($stateProvider) {
+      $stateProvider
+        .state('main', {
+          url: "/",
+          views: {
+            'state' : { template: '<wl-template></wl-template>' }
+          }
+        });
+    }])
+    .run(runBlock);
 
-runBlock.$inject = ['$state'];
+    runBlock.$inject = ['$state', 'dataservice'];
 
-function runBlock($state) {
-  $state.go('main');
-}
+    function runBlock($state, dataservice) {
+      dataservice.initialize();
+      $state.go('main');
+    }
+})();
